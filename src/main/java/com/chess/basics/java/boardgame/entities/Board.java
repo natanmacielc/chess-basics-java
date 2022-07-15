@@ -1,6 +1,6 @@
 package com.chess.basics.java.boardgame.entities;
 
-import com.chess.basics.java.boardgame.entities.exceptions.BoardException;
+import com.chess.basics.java.boardgame.exceptions.BoardException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -58,5 +58,18 @@ public class Board {
             throw new BoardException("Position not on the board.");
         }
         return this.piece(position) != null;
+    }
+
+    public Piece removePiece(Position position) {
+        if (!positionExists(position)) {
+            throw new BoardException("Position not on the board");
+        }
+        if (piece(position) == null) {
+            return null;
+        }
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumn()] = null;
+        return aux;
     }
 }

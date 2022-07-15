@@ -1,4 +1,4 @@
-package com.chess.basics.java.boardgame.entities.exceptions;
+package com.chess.basics.java.boardgame.exceptions;
 
 public class BoardException extends RuntimeException {
 
